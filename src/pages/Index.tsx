@@ -2,6 +2,7 @@
 import React from 'react';
 import Game from '@/components/Game';
 import { Toaster } from '@/components/ui/toaster';
+import { Link } from 'react-router-dom';
 
 const Index: React.FC = () => {
   return (
@@ -21,6 +22,7 @@ const Index: React.FC = () => {
       <div className="text-center mt-8 text-gray-300 text-sm">
         <p>Use SPACE key or click to flap wings</p>
         <p className="mt-1">© 2025 Flappy Trump</p>
+        <Link to ="/admin"className="mt-5">Admin Panel</Link>
       </div>
       
       <Toaster />

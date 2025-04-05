@@ -15,6 +15,8 @@ export interface LeaderboardEntry {
 export const BACKEND_API_URL = "https://api.jsonbin.io/v3/b/";
 export const JSONBIN_API_KEY = "$2b$10$EaNcibE4SEpAZJvSCUYnw.OQDnMjnvhbop3rq4.D25u1.F/Z175um";
 export const COLLECTION_ID = "65e08616dc74654018a83435";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+console.log(API_BASE_URL)
 
 interface GameState {
   gameStarted: boolean;
@@ -65,6 +67,7 @@ const getDeviceId = () => {
   localStorage.setItem('flappy_trump_device_id', newId);
   return newId;
 };
+
 
 export const useGameStore = create<GameState>()(
   persist(
@@ -243,7 +246,7 @@ export const useGameStore = create<GameState>()(
        
         
         try {
-          const response = await fetch('http://localhost:3002/scores', {
+          const response = await fetch(`${API_BASE_URL}/scores}`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -291,7 +294,7 @@ export const useGameStore = create<GameState>()(
         set({ isLoadingScores: true });
       
         try {
-          const response = await fetch('http://localhost:3002/scores');
+          const response = await fetch(`${API_BASE_URL}/scores`);
       
           if (response.ok) {
             const cloudEntries = await response.json();
