@@ -15,8 +15,8 @@ export interface LeaderboardEntry {
 export const BACKEND_API_URL = "https://api.jsonbin.io/v3/b/";
 export const JSONBIN_API_KEY = "$2b$10$EaNcibE4SEpAZJvSCUYnw.OQDnMjnvhbop3rq4.D25u1.F/Z175um";
 export const COLLECTION_ID = "65e08616dc74654018a83435";
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
-console.log(API_BASE_URL)
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
 
 interface GameState {
   gameStarted: boolean;

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useGameStore, LeaderboardEntry } from '@/lib/gameStore';
+import { useGameStore, LeaderboardEntry, API_BASE_URL } from '@/lib/gameStore';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import {
@@ -15,11 +15,11 @@ const Admin: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [adminPassword, setAdminPassword] = useState('');
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-
+  
   useEffect(() => {
     const getLeaderboard = async () => {
       try {
-        const response = await fetch('http://localhost:3002/scores');
+        const response = await fetch(`${API_BASE_URL}/scores`);
         if (response.ok) {
           const cloudEntries: LeaderboardEntry[] = await response.json();
 
