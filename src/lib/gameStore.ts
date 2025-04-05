@@ -246,7 +246,7 @@ export const useGameStore = create<GameState>()(
        
         
         try {
-          const response = await fetch(`${API_BASE_URL}/scores}`, {
+          const response = await fetch(`${API_BASE_URL}/scores`, {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
